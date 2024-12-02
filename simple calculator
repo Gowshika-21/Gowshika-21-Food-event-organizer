@@ -1,0 +1,13 @@
+x=int(input())
+y=int(input())
+def add():
+    print(x+y)
+def sub():
+    print(x-y)
+def mul():
+    print(x*y)
+def div():
+    if y==0:
+        print("infinity")
+    else:
+        print(x/y)
