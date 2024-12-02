@@ -1,0 +1,124 @@
+class DinnerParty:
+    def __init__(self):
+        self.entrees = []
+        self.desserts = []
+        self.drinks = []
+
+    def get_menu_options(self, food_type, num_choices):
+        """Get menu options from user."""
+        try:
+            options = []
+            for i in range(num_choices):
+                option = input(f"Enter {food_type} option {i+1}: ")
+                options.append([option, 0])
+            return options
+        except Exception as e:
+            print(f"Error: {str(e)}")
+def display_menu(self, options):
+        """Display menu options."""
+        prompt = ""
+        for i, option in enumerate(options):
+            prompt += f"{i+1}) {option[0]}, "
+        return prompt[:-2] + ": "
+
+    def get_choice(self, options):
+        """Get user's choice."""
+        try:
+            prompt = self.display_menu(options)
+            print(prompt, end=" ")
+            choice = int(input()) - 1
+            if 0 <= choice < len(options):
+                options[choice][1] += 1
+            else:
+                print("Invalid choice. Please choose again.")
+                self.get_choice(options)
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+            self.get_choice(options)
+        except Exception as e:
+            print(f"Error: {str(e)}")
+def display_report(self):
+        """Display order report."""
+        print("*** DINNER PARTY ORDERS ***\n")
+        print("Entree orders:")
+        for entree, count in self.entrees:
+            print(f"{entree}: {count}")
+        print("\nDessert orders:")
+        for dessert, count in self.desserts:
+            print(f"{dessert}: {count}")
+        print("\nDrink orders:")
+        for drink, count in self.drinks:
+            print(f"{drink}: {count}")
+class ValidationException(Exception):
+    pass
+
+
+class Validator:
+    @staticmethod
+    def validate_num_guests(num_guests):
+        if num_guests <= 0:
+            raise ValidationException("Number of guests must be greater than 0.")
+
+    @staticmethod
+    def validate_num_choices(num_choices):
+        if num_choices <= 0:
+            raise ValidationException("Number of choices must be greater than 0.")
+def main():
+    dinner_party = DinnerParty()
+
+    while True:
+        try:
+            num_guests = int(input("Enter number of guests: "))
+            Validator.validate_num_guests(num_guests)
+            break
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+        except ValidationException as e:
+            print(f"Error: {str(e)}")
+  while True:
+        try:
+            num_entrees = int(input("Enter number of entree choices: "))
+            Validator.validate_num_choices(num_entrees)
+            break
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+        except ValidationException as e:
+            print(f"Error: {str(e)}")
+
+    while True:
+        try:
+            num_desserts = int(input("Enter number of dessert choices: "))
+            Validator.validate_num_choices(num_desserts)
+            break
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+        except ValidationException as e:
+            print(f"Error: {str(e)}")
+while True:
+        try:
+            num_drinks = int(input("Enter number of drink choices: "))
+            Validator.validate_num_choices(num_drinks)
+            break
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+        except ValidationException as e:
+            print(f"Error: {str(e)}")
+
+    dinner_party.entrees = dinner_party.get_menu_options("entree", num_entrees)
+    dinner_party.desserts = dinner_party.get_menu_options("dessert", num_desserts)
+    dinner_party.drinks = dinner_party.get_menu_options("drink", num_drinks)
+for i in range(num_guests):
+        print(f"\nGuest #{i+1}:")
+        print("Please select your entree.")
+        dinner_party.get_choice(dinner_party.entrees)
+        print("Please select your dessert.")
+        dinner_party.get_choice(dinner_party.desserts)
+        print("Please select your drink.")
+        dinner_party.get_choice(dinner_party.drinks)
+
+    dinner_party.display_report()
+
+
+if __name__ == "__main__":
+    main()
+``>
